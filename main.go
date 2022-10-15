@@ -46,10 +46,10 @@ func bookById(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, book)
 }
 
-func getBooksById(id string) (Book, error) {
+func getBooksById(id string) (*Book, error) {
 	for i, b := range books {
 		if b.ID == id {
-			return books[i], nil
+			return &books[i], nil
 		}
 	}
 
